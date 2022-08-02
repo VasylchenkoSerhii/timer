@@ -68,5 +68,40 @@ function updateClockFace ({ hours, mins, secs }) {
 };
 
 
+// Таймер обратного отсчета
+
+const refs2 = {
+    wrapper: document.querySelector('.countdownTimer'),
+    days: document.querySelector('.days'),
+    hours: document.querySelector('.hours'),
+    minutes: document.querySelector('.minutes'),
+    seconds: document.querySelector('.seconds'),
+};
+
+const deadLine = new Date(2023, 0, 1);
+
+function countdownTimer() {
+    const toDay = new Date();
+    const deltaDate = deadLine - toDay;
+
+    const seconds = String(Math.floor((deltaDate / 1000) % 60)).padStart(2, '0');
+    const minutes = String(Math.floor((deltaDate / 1000 / 60) % 60)).padStart(2, '0');
+    const hours = String(Math.floor((deltaDate / 1000 / 60 / 60) % 24)).padStart(2, '0'); 
+    const days = String(Math.floor(deltaDate / 1000 / 60 / 60/ 24)).padStart(2, '0');  
+
+    updateDate(days, hours, minutes, seconds);
+}
+
+setInterval(countdownTimer, 1000);
+
+function updateDate(d, h, m, s) {
+    refs2.days.textContent = d;
+    refs2.hours.textContent = h;
+    refs2.minutes.textContent = m;
+    refs2.seconds.textContent = s;
+};
+
+
+ 
 
 
