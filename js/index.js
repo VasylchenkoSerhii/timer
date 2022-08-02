@@ -95,9 +95,9 @@ function countdownTimer() {
 setInterval(countdownTimer, 1000);
 
 function updateDate(d, h, m, s) {
-    refs2.days.textContent = `${d}:`;
-    refs2.hours.textContent = `${h}:`;
-    refs2.minutes.textContent = `${m}:`;
+    refs2.days.textContent = d;
+    refs2.hours.textContent = h;
+    refs2.minutes.textContent = m;
     refs2.seconds.textContent = s;
 };
 
